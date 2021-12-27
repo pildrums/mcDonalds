@@ -9,31 +9,20 @@ import User from './User';
 // template
 const Header = () => {
   return (
-    <Fixed>
-      <HeaderWrapper>
-        <HeaderContainer>
-          <h1>
-            <Logo />
-          </h1>
-          <Menu />
-          <User />
-        </HeaderContainer>
-      </HeaderWrapper>
-    </Fixed>
+    <HeaderWrapper>
+      <HeaderContainer>
+        <h1>
+          <Logo />
+        </h1>
+        <Menu />
+        <User />
+      </HeaderContainer>
+    </HeaderWrapper>
   );
 };
 
-// style
-const Fixed = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-`;
-
 const HeaderWrapper = styled.header`
-  width: 100%;
+  width: 100vw;
   height: 100px;
   background: #333;
   display: flex;
@@ -42,6 +31,11 @@ const HeaderWrapper = styled.header`
   justify-content: center;
   padding: 0 20px;
   border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 `;
 
 const HeaderContainer = styled.div`
