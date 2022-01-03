@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {ReactComponent as Logo} from '../../logo.svg';
-
+import { GiHamburgerMenu } from "react-icons/gi";
 import Menu from './Menu';
 import User from './User';
-
+import MenuMobile from './MenuMobile';
 
 // template
 const Header = () => {
+
+  // viewport
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 1023;
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  // MenuButton Event
+  const [click, setClick] = useState(false);
+  const onToggle = () => setClick(click => !click);
+  
+  // render
   return (
     <HeaderWrapper>
       <HeaderContainer>
         <h1>
           <Logo />
         </h1>
-        <Menu />
-        <User />
+        {width > breakPoint && <Menu />}
+        {width > breakPoint && <User />}
+        {width < breakPoint && <MenuButton onClick={onToggle}/>}
+        {click && <MenuMobile />}
       </HeaderContainer>
     </HeaderWrapper>
   );
@@ -39,13 +55,18 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: coral;
   h1 {
     cursor: pointer;
     svg {
       width: 80px;
     }
   }
+`;
+
+const MenuButton = styled(GiHamburgerMenu)`
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
 `;
 
 export default Header;
