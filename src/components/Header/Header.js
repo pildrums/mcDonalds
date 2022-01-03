@@ -22,20 +22,15 @@ const Header = () => {
 };
 
 const HeaderWrapper = styled.header`
-  width: 100vw;
+  width: 100%;
   height: 100px;
   background: #333;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
-  border-bottom: 1px solid #ccc;
+  padding: 0 1.25rem;
   position: fixed;
   top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 `;
 
 const HeaderContainer = styled.div`
@@ -44,6 +39,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: coral;
   h1 {
     cursor: pointer;
     svg {

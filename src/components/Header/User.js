@@ -18,7 +18,7 @@ const UserWrapper = styled.div`
   svg {
     font-size: 1.5rem;
     margin-left: 1rem;
-    color: #FFC300;
+    color: #ffc300;
     cursor: pointer;
   }
 `;

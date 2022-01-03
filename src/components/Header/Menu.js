@@ -20,11 +20,14 @@ const Menu = () => {
 };
 
 const MainMenuWrapper = styled.nav`
-  flex: 3;
+  width: 100%;
   .main {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
     li {
+      text-align: center;
       cursor: pointer;
       font-weight: 600;
       font-size: 1rem;

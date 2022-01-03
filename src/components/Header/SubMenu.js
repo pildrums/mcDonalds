@@ -6,26 +6,28 @@ const SubMenu = ({onMouseOut}) => {
   return (
     <SubMenuWrapper onMouseLeave={onMouseOut}>
       <SubMenuContent>
-        <ul className='menu'>
-          {HeaderData.burger.map(item => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
-        <ul className='store'>
-          {HeaderData.store.map(item => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
-        <ul className='news'>
-          {HeaderData.news.map(item => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
-        <ul className='story'>
-          {HeaderData.story.map(item => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
+        <SubMenuContainer>
+          <ul>
+            {HeaderData.burger.map(item => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+          <ul>
+            {HeaderData.store.map(item => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+          <ul>
+            {HeaderData.news.map(item => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+          <ul>
+            {HeaderData.story.map(item => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </SubMenuContainer>
       </SubMenuContent>
     </SubMenuWrapper>
   );
@@ -34,6 +36,7 @@ const SubMenu = ({onMouseOut}) => {
 const SubMenuWrapper = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
   position: absolute;
   top: 100px;
@@ -41,40 +44,45 @@ const SubMenuWrapper = styled.div`
 `;
 
 const SubMenuContent = styled.div`
-  width: 1320px;
+  width: inherit;
   height: 300px;
-  background: #fff;
-  justify-self: center;
+  background: #ffc300;
+  border-top: 1px solid #fff;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 4px rgba(0, 0, 0 , 0.3);
-  border: 1px solid #ccc;
-  .menu {
-    position: relative;
-    top: 0;
-    right: 190px;
-  }
-  .store {
-    position: relative;
-    right: 70px;
-  }
-  .news {
-    position: relative;
-    left: 90px;
-  }
-  .story {
-    position: relative;
-    left: 270px;
-  }
+  justify-self: center;
+  padding: 0 20px;
+`;
+
+const SubMenuContainer = styled.div`
+  width: 1320px;
+  display: flex;
+  justify-content: space-evenly;
   ul {
     margin-top: 0.5rem;
+    &:nth-child(1) {
+      position: relative;
+      left: 84px;
+    }
+      &:nth-child(2) {
+      position: relative;
+      left: 20px;
+    }
+      &:nth-child(3) {
+      position: relative;
+      right: 8px;
+    }
+      &:nth-child(4) {
+      position: relative;
+      right: 0px;
+    }
     li {
       margin-bottom: 1rem;
       font-size: 1rem;
       font-weight: 500;
       cursor: pointer;
       &:hover {
-        text-decoration: 2px underline #000;
+        text-decoration: 1px underline #000;
       }
     }
   }
