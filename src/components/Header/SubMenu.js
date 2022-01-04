@@ -41,6 +41,7 @@ const SubMenuWrapper = styled.div`
   position: absolute;
   top: 100px;
   left: 0;
+  z-index: 999;
 `;
 
 const SubMenuContent = styled.div`
@@ -52,6 +53,7 @@ const SubMenuContent = styled.div`
   justify-content: center;
   justify-self: center;
   padding: 0 20px;
+  position: relative;
 `;
 
 const SubMenuContainer = styled.div`

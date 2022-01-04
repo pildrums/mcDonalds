@@ -23,17 +23,20 @@ const Header = () => {
   
   // render
   return (
-    <HeaderWrapper>
-      <HeaderContainer>
-        <h1>
-          <Logo />
-        </h1>
-        {width > breakPoint && <Menu />}
-        {width > breakPoint && <User />}
-        {width < breakPoint && <MenuButton onClick={onToggle}/>}
-        {click && <MenuMobile />}
-      </HeaderContainer>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <HeaderContainer>
+          <h1>
+            <Logo />
+          </h1>
+          {width > breakPoint && <Menu />}
+          {width > breakPoint && <User />}
+          {width < breakPoint && <MenuButton onClick={onToggle}/>}
+          {click && <MenuMobile />}
+        </HeaderContainer>
+      </HeaderWrapper>
+      <Spaces />
+    </>
   );
 };
 
@@ -47,6 +50,7 @@ const HeaderWrapper = styled.header`
   padding: 0 1.25rem;
   position: fixed;
   top: 0;
+  z-index: 999;
 `;
 
 const HeaderContainer = styled.div`
@@ -67,6 +71,10 @@ const MenuButton = styled(GiHamburgerMenu)`
   font-size: 2rem;
   color: #fff;
   cursor: pointer;
+`;
+
+const Spaces = styled.div`
+  height: 100px;
 `;
 
 export default Header;

@@ -1,17 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import Slider from './Slider';
 
 const Content = () => {
   return (
-    <ContentWrapper>
-      
-    </ContentWrapper>
+    <>
+      <Slider />
+    </>
   );
 };
-
-const ContentWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
 
 export default Content;
