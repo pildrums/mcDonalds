@@ -8,7 +8,6 @@ import MenuMobile from './MenuMobile';
 
 // template
 const Header = () => {
-
   // viewport
   const [width, setWidth] = useState(window.innerWidth);
   const breakPoint = 1023;

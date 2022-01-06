@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import MobileMenu from '../../DB/MobileMenu.json';
 import MenuMobileList from './MenuMobileList';
 
 const MenuMobile = () => {
-  const [activeIndex, setActiveIndex] = useState();
+  // viewport
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 1023;
 
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  //render
   return (
+    width < breakPoint &&
     <MenuMobileWrapper>
-      <MenuMobileContainer>
-        {MobileMenu.map((item, idx) => {
-          const active = idx === activeIndex ? 'active' : '';
-          return (
-            <MenuMobileList
-              title={item.title}
-              idx={idx}
-              list={item.list}
-              active={active}
-              activeIndex={activeIndex}
-              setActiveIndex={setActiveIndex}
-            />
-          )
-        })}
-      </MenuMobileContainer>
+        <MenuMobileContainer>
+          {MobileMenu.map(item => (
+            <MenuMobileList key={item.id} title={item.title} list={item.list}/>
+          ))}
+        </MenuMobileContainer>
     </MenuMobileWrapper>
   );
 };
@@ -48,8 +46,6 @@ const MenuMobileContainer = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  `;
-
-
+`;
 
 export default MenuMobile;

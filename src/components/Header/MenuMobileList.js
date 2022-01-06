@@ -1,61 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 
-const MenuMobileList = (props) => {
-  const {title, list, activeIndex, setActiveIndex, idx} = props;
+const MenuMobileList = ({title, list}) => {
+  const parentRef = useRef(null);
+  const childRef = useRef(null);
 
-  const [clickedIdx, setClickedIdx] = useState();
+  const [isCollepse, setIsCollepse] = useState(false);
 
-  const onToggle = () => {
-    setActiveIndex(idx);
-    setClickedIdx(null);
-  };
-
-  const handleToggle = (idx) => {
-    setClickedIdx(idx);
-  };
+  const handleButtonClick = useCallback(
+    e => {
+      e.stopPropagation();
+      if (parentRef.current === null || childRef.current === null) {
+        return;
+      }
+      if (parentRef.current.clientHeight > 0) {
+        parentRef.current.style.height = "0";
+      } else {
+        parentRef.current.style.height = `${childRef.current.clientHeight}px`;
+      }
+      setIsCollepse(!isCollepse);
+    },
+    [isCollepse]
+  );
 
   return (
-    <MenuMobileItem>
-      <p onClick={onToggle}>{title}</p>
-      <SubMenu className={idx === activeIndex ? '' : 'closed'}>
-        {list?.map((menu, idx) => (
-          <SubMenuItem
-            onClick={e => handleToggle(e, idx)}
-            className={clickedIdx === idx ? 'strong' : ''}
-          >
-            <p>{menu}</p>
-          </SubMenuItem>
-        ))}
-      </SubMenu>
-    </MenuMobileItem>
+    <Container>
+      <Header onClick={handleButtonClick}>
+        {title}
+      </Header>
+      <ContentsWrapper ref={parentRef}>
+          <Contents ref={childRef}>
+          {list.map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
+          </Contents>
+      </ContentsWrapper>
+    </Container>
   );
 };
 
-const MenuMobileItem = styled.li`
+const Container = styled.div`
   width: 100%;
   padding: 1rem 0;
   border-bottom: 2px solid #fff;
   text-align: center;
   font-size: 2rem;
-  p {
-    cursor: pointer;
+  &:last-child {
+    border-bottom: none;
   }
 `;
 
-const SubMenu = styled.ul`
-  border-top: 1px solid #fff;
-  margin-top: 1rem;
-  &.closed {
-    display: none;
-  }
-`;
-
-const SubMenuItem = styled.li`
-  font-size: 1.25rem;
-  padding: 0.5rem 0;
+const Header = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem 0;
+  user-select: none;
 `;
 
-export default MenuMobileList;
+const ContentsWrapper = styled.div`
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+`;
+
+const Contents = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    padding: 0.5rem 0;
+    user-select: none;
+  }
+`;
+
+export default React.memo(MenuMobileList);

@@ -1,20 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import SlideData from '../../DB/SlideData.json';
+import MobileSlideData from '../../DB/MobileSlideData.json';
 
-const TOTAL_SLIDES = 7;
+const TOTAL_SLIDES = 4;
 const delay = 3000;
 
 const Slider = () => {
-  // 현재 슬라이드 상태값
   const [currentSlide, setCurrentSlide] = useState(0);
-  // 슬라이드 DOM
-  const slideRef = useRef(null);
-  // 작동시간 DOM
-  const timeoutRef = useRef(null);
+  const slideRef = useRef(null); // slide 
+  const timeoutRef = useRef(null); //dot button
 
-  // 다음으로 슬라이드
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
@@ -23,7 +19,6 @@ const Slider = () => {
     }
   };
 
-  // 이전으로 슬라이드
   const prevSlide = () => {
     if (currentSlide === 0) {
       setCurrentSlide(TOTAL_SLIDES);
@@ -32,16 +27,10 @@ const Slider = () => {
     }
   };
 
-  // 슬라이드 이동 시 시간 초기화
   const resetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-  };
-
-  // 우클릭 방지
-  const onContextMenu = e => {
-    e.preventDefault();
   };
 
   useEffect(() => {
@@ -56,13 +45,13 @@ const Slider = () => {
 
     return () => {
       resetTimeout();
-    }
+    };
   }, [currentSlide]);
 
   return (
-    <SliderWrapper onContextMenu={onContextMenu}>
+    <SliderWrapper>
       <SliderContainer ref={slideRef}>
-        {SlideData.img.map(item => (
+        {MobileSlideData.img.map(item => (
           <img key={item.id} src={item.url} alt='' />
         ))}
       </SliderContainer>
@@ -75,7 +64,7 @@ const Slider = () => {
         </Button>
       </ButtonWrapper>
       <DotWrapper>
-        {SlideData.img.map(item => (
+        {MobileSlideData.img.map(item => (
           <DotButton
             key={item.id}
             className={currentSlide === item.id ? " active" : ""}
