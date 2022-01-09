@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import MobileSlideData from '../../DB/MobileSlideData.json';
 
+// variable
 const TOTAL_SLIDES = 4;
 const delay = 3000;
 
+// template
 const Slider = () => {
+  // function
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null); // slide 
   const timeoutRef = useRef(null); //dot button
@@ -48,6 +51,7 @@ const Slider = () => {
     };
   }, [currentSlide]);
 
+  // render
   return (
     <SliderWrapper>
       <SliderContainer ref={slideRef}>
@@ -78,9 +82,11 @@ const Slider = () => {
   );
 };
 
+// style
 const SliderWrapper = styled.div`
   width: 100%;
   overflow: hidden;
+  position: relative;
 `;
 
 const SliderContainer = styled.div`
@@ -95,8 +101,8 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  position: sticky;
-  bottom: 55%;
+  position: absolute;
+  bottom: 50%;
 `;
 
 const Button = styled.button`
@@ -120,8 +126,9 @@ const Button = styled.button`
 
 const DotWrapper = styled.div`
   text-align: center;
-  position: sticky;
-  bottom: 130px;
+  position: absolute;
+  bottom: 40px;
+  left: 35%;
 `;
 
 const DotButton = styled.div`

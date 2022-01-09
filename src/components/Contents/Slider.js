@@ -6,6 +6,7 @@ import SlideData from '../../DB/SlideData.json';
 const TOTAL_SLIDES = 7;
 const delay = 3000;
 
+// template
 const Slider = () => {
   // 현재 슬라이드 상태값
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -92,6 +93,7 @@ const Slider = () => {
 const SliderWrapper = styled.div`
   width: 100%;
   overflow: hidden;
+  position: relative;
 `;
 
 const SliderContainer = styled.div`
@@ -106,8 +108,8 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  position: sticky;
-  bottom: 55%;
+  position: absolute;
+  bottom: 45%;
 `;
 
 const Button = styled.button`
@@ -131,14 +133,15 @@ const Button = styled.button`
 
 const DotWrapper = styled.div`
   text-align: center;
-  position: sticky;
-  bottom: 130px;
+  position: absolute;
+  bottom: 30px;
+  left: 45%;
 `;
 
 const DotButton = styled.div`
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   cursor: pointer;
   margin: 15px 7px 0;
@@ -148,4 +151,4 @@ const DotButton = styled.div`
   }
 `;
 
-export default React.memo(Slider);
+export default Slider;
