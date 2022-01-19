@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Slider from './Slider';
 import MobileSlider from './MobileSlider';
-import MainContent from './MainContent';
+import More from './More';
 
 const Content = () => {
   // viewport
@@ -17,7 +17,7 @@ const Content = () => {
   return (
     <ContentWrapper>
       {width < breakPoint ? <MobileSlider /> : <Slider />}
-      <MainContent />
+      <More />
     </ContentWrapper>
   );
 };
