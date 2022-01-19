@@ -14,16 +14,16 @@ const More = () => {
     <MoreWrapper>
       <MoreContainer>
         <h1>McDonald's Live</h1>
-        {MainContentData.data.slice(0, visible).map(item => (
-          <MoreItemList key={item.id}>
-            <MoreItem>
+          <MoreItemList>
+          {MainContentData.data.slice(0, visible).map(item => (
+            <MoreItem key={item.id}>
               <img src={item.img} alt="" />
               <div className='textArea'>
                 <p>{item.text}</p>
               </div>
             </MoreItem>
+          ))}
           </MoreItemList>
-        ))}
         <button onClick={onMore}>
           <MdAdd />
         </button>
