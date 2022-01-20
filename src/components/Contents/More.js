@@ -71,7 +71,7 @@ const MoreItemList = styled.div`
 
 const MoreItem = styled.div`
   width: 366px;
-  height: 400px;
+  height: 450px;
   background: #fff;
   margin: 20px 0;
   border-radius: 1rem;
@@ -82,14 +82,15 @@ const MoreItem = styled.div`
     border-top-left-radius: 1rem;
   }
   .textArea {
-    height: 80px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 1rem;
     p {
       color: #000;
       font-size: 1.125rem;
       font-weight: 500;
+      white-space: pre-line;
+      margin-top: 20px;
     }
   }
 `;
