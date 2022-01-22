@@ -57,7 +57,6 @@ const MoreContainer = styled.div`
 `;
 
 const MoreItemList = styled.div`
-  width: 1280px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
