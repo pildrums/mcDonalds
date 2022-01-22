@@ -2,23 +2,23 @@
   "img": [
     {
       "id": 0,
-      "url": "img/mobileSlide1.png"
+      "url": "mcDonalds/img/mobileSlide1.png"
     },
     {
       "id": 1,
-      "url": "img/mobileSlide2.png"
+      "url": "mcDonalds/img/mobileSlide2.png"
     },
     {
       "id": 2,
-      "url": "img/mobileSlide3.png"
+      "url": "mcDonalds/img/mobileSlide3.png"
     },
     {
       "id": 3,
-      "url": "img/mobileSlide4.png"
+      "url": "mcDonalds/img/mobileSlide4.png"
     },
     {
       "id": 4,
-      "url": "img/mobileSlide5.png"
+      "url": "mcDonalds/img/mobileSlide5.png"
     }
   ]
 }

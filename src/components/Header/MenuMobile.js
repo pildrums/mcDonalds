@@ -9,7 +9,7 @@ const MenuMobile = () => {
   const breakPoint = 1023;
 
   useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    return window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
   //render

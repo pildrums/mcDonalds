@@ -95,4 +95,4 @@ const MoreItem = styled.div`
   }
 `;
 
-export default More;
+export default React.memo(More);
