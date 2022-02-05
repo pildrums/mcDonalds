@@ -13,6 +13,7 @@ const More = () => {
   return (
     <MoreWrapper>
       <MoreContainer>
+      <h1>McDonald's Live</h1>
         <MoreItemList>
           {MainContentData.data.slice(0, visible).map(item => (
             <MoreItem key={item.id}>
