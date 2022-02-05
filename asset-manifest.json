@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/mcDonalds/static/css/main.33425fd5.css",
-    "main.js": "/mcDonalds/static/js/main.8076aa23.js",
+    "main.js": "/mcDonalds/static/js/main.3b711cb6.js",
     "static/js/787.fdfca288.chunk.js": "/mcDonalds/static/js/787.fdfca288.chunk.js",
     "index.html": "/mcDonalds/index.html",
     "static/media/logo.svg": "/mcDonalds/static/media/logo.70a0274ecd8ad3612805403ebf83ead3.svg",
     "main.33425fd5.css.map": "/mcDonalds/static/css/main.33425fd5.css.map",
-    "main.8076aa23.js.map": "/mcDonalds/static/js/main.8076aa23.js.map",
+    "main.3b711cb6.js.map": "/mcDonalds/static/js/main.3b711cb6.js.map",
     "787.fdfca288.chunk.js.map": "/mcDonalds/static/js/787.fdfca288.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.33425fd5.css",
-    "static/js/main.8076aa23.js"
+    "static/js/main.3b711cb6.js"
   ]
 }
