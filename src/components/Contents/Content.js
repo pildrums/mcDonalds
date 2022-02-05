@@ -10,14 +10,16 @@ const Content = () => {
   const breakPoint = 768;
 
   useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    return () => {
+      window.addEventListener("resize", () => setWidth(window.innerWidth));
+    };
   }, []);
 
   // render
   return (
     <ContentWrapper>
       {width < breakPoint ? <MobileSlider /> : <Slider />}
-      <More />
+        <More />
     </ContentWrapper>
   );
 };
@@ -25,6 +27,7 @@ const Content = () => {
 // style
 const ContentWrapper = styled.div`
   flex: 1;
+  overflow-x: hidden;
 `;
 
 export default Content;

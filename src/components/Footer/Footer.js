@@ -96,6 +96,11 @@ const CenterContent = styled.div`
     margin: 0.5rem 0;
     font-size: 14px;
   }
+  @media all and (max-width: 1023px) {
+    p:last-child {
+      text-align: center;
+    }
+  }
 `;
 const RightContent = styled.div`
   display: flex;

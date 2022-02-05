@@ -129,6 +129,16 @@ const DotWrapper = styled.div`
   position: absolute;
   bottom: 40px;
   left: 35%;
+  @media all and (max-width: 412px) {
+    & {
+      left: 30%;
+    }
+  }
+  @media all and (max-width: 412px) {
+    & {
+      left: 30%;
+    }
+  }
 `;
 
 const DotButton = styled.div`

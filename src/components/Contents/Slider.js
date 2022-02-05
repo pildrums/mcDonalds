@@ -136,6 +136,9 @@ const DotWrapper = styled.div`
   position: absolute;
   bottom: 30px;
   left: 45%;
+  @media all and (max-width: 1024px) {
+    left: 40%;
+  }
 `;
 
 const DotButton = styled.div`
@@ -151,4 +154,4 @@ const DotButton = styled.div`
   }
 `;
 
-export default Slider;
+export default React.memo(Slider);

@@ -13,8 +13,7 @@ const More = () => {
   return (
     <MoreWrapper>
       <MoreContainer>
-        <h1>McDonald's Live</h1>
-          <MoreItemList>
+        <MoreItemList>
           {MainContentData.data.slice(0, visible).map(item => (
             <MoreItem key={item.id}>
               <img src={item.img} alt="" />
@@ -23,7 +22,7 @@ const More = () => {
               </div>
             </MoreItem>
           ))}
-          </MoreItemList>
+        </MoreItemList>
         <button onClick={onMore}>
           <MdAdd />
         </button>
@@ -34,13 +33,13 @@ const More = () => {
 
 const MoreWrapper = styled.div`
   width: 100%;
-  padding: 3rem 20px;
   display: flex;
   justify-content: center;
+  padding: 3rem 1.25rem;
 `;
 
 const MoreContainer = styled.div`
-  width: 1280px;
+  width: 1320px;
   display: flex;
   flex-direction: column;
   button {
@@ -71,8 +70,8 @@ const MoreItemList = styled.div`
 const MoreItem = styled.div`
   width: 366px;
   height: 450px;
-  background: #fff;
   margin: 20px 0;
+  background: #fff;
   border-radius: 1rem;
   box-shadow: 2px 4px 5px 2px rgba(0,0,0,0.2);
   cursor: pointer;
