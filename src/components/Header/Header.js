@@ -13,9 +13,7 @@ const Header = () => {
   const breakPoint = 1023;
 
   useEffect(() => {
-    return () => {
-      window.addEventListener("resize", () => setWidth(window.innerWidth));
-    };
+    return window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
   // MenuButton Event

@@ -10,9 +10,7 @@ const Content = () => {
   const breakPoint = 768;
 
   useEffect(() => {
-    return () => {
-      window.addEventListener("resize", () => setWidth(window.innerWidth));
-    };
+    return window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
   // render

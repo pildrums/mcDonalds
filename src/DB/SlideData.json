@@ -2,35 +2,35 @@
   "img": [
     {
       "id": 0,
-      "url": "mcDonalds/img/slide1.png"
+      "url": "img/slide1.png"
     },
     {
       "id": 1,
-      "url": "mcDonalds/img/slide2.png"
+      "url": "img/slide2.png"
     },
     {
       "id": 2,
-      "url": "mcDonalds/img/slide3.png"
+      "url": "img/slide3.png"
     },
     {
       "id": 3,
-      "url": "mcDonalds/img/slide4.png"
+      "url": "img/slide4.png"
     },
     {
       "id": 4,
-      "url": "mcDonalds/img/slide5.png"
+      "url": "img/slide5.png"
     },
     {
       "id": 5,
-      "url": "mcDonalds/img/slide6.png"
+      "url": "img/slide6.png"
     },
     {
       "id": 6,
-      "url": "mcDonalds/img/slide7.png"
+      "url": "img/slide7.png"
     },
     {
       "id": 7,
-      "url": "mcDonalds/img/slide8.png"
+      "url": "img/slide8.png"
     }
   ]
 }
