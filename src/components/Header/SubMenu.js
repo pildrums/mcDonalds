@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderData from '../../DB/HeaderData.json';
+import HeaderData from 'DB/HeaderData.json';
 
 const SubMenu = ({onMouseOut}) => {
   return (
     <SubMenuWrapper onMouseLeave={onMouseOut}>
       <SubMenuContent>
         <SubMenuContainer>
+          {/* 각각의 리스트 등을 map 함수를 사용하여 코드를 줄임 */}
           <ul>
             {HeaderData.burger.map(item => (
               <li key={item.id}>{item.name}</li>

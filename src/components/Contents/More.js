@@ -4,8 +4,10 @@ import { MdAdd } from 'react-icons/md';
 import MainContentData from '../../DB/MainContents.json';
 
 const More = () => {
+  // 더보기 버튼을 클릭 전에 보여줄 item의 초기상태 (6개 씩)
   const [visible, setVisible] = useState(6);
 
+  // 버튼 클릭 시 item을 추가로 6개를 보여주는 함수
   const onMore = () => {
     setVisible(prevValue => prevValue + 6);
   };
@@ -15,6 +17,10 @@ const More = () => {
       <MoreContainer>
       <h1>McDonald's Live</h1>
         <MoreItemList>
+          {/*
+            배열의 첫번째 index[0]와 마지막 index[5]를 파라미터로 받아서
+            사이의 원소를 새로운 배열로 만들어서 렌더링하도록 로직 설계
+          */}
           {MainContentData.data.slice(0, visible).map(item => (
             <MoreItem key={item.id}>
               <img src={item.img} alt="" />

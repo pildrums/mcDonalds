@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// 전체 템플릿 세로 정렬
 const Wrapper = ({children}) => {
   return (
     <Container>

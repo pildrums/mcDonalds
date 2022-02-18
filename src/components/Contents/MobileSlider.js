@@ -3,17 +3,21 @@ import styled from 'styled-components';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import MobileSlideData from '../../DB/MobileSlideData.json';
 
-// variable
-const TOTAL_SLIDES = 4;
-const delay = 3000;
-
-// template
 const Slider = () => {
-  // function
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null); // slide 
-  const timeoutRef = useRef(null); //dot button
+  // 총 슬라이드 개수
+  const TOTAL_SLIDES = 4;
 
+  // 동작 시간
+  const delay = 3000;
+
+  // 현재 슬라이드 상태값
+  const [currentSlide, setCurrentSlide] = useState(0);
+  // 슬라이드 DOM
+  const slideRef = useRef(null);
+  // 작동시간 DOM
+  const timeoutRef = useRef(null);
+
+  // 다음으로 슬라이드 (슬라이드 버튼)
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
@@ -22,6 +26,7 @@ const Slider = () => {
     }
   };
 
+  // 이전으로 슬라이드 (슬라이드 버튼)
   const prevSlide = () => {
     if (currentSlide === 0) {
       setCurrentSlide(TOTAL_SLIDES);
@@ -30,6 +35,8 @@ const Slider = () => {
     }
   };
 
+  // 슬라이드 이동 시 시간이 어긋나는 버그가 발생
+  // clearTimeout 함수를 사용해서 한 장씩 넘어갈때마다 시간을 초기화
   const resetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -37,21 +44,26 @@ const Slider = () => {
   };
 
   useEffect(() => {
+    // 시간 초기화 함수
     resetTimeout();
-    timeoutRef.current = setTimeout(
-      () => 
-        setCurrentSlide((prevIndex) => prevIndex === TOTAL_SLIDES ? 0 : prevIndex + 1),
-        delay
+    // 현재 Dom에 일정시간이 되면 자동으로 넘어가게 하는 로직
+    timeoutRef.current = setTimeout(() => 
+      // 이전 index값이 총 slide 개수와 같으면 처음으로 돌아가고 아니면 그 다음 슬라이드로 넘어감
+      setCurrentSlide((prevIndex) => prevIndex === TOTAL_SLIDES ? 0 : prevIndex + 1),
+      delay
     );
+
+    // 슬라이드 이동 시 인터렉션
     slideRef.current.style.transition = "ease 1000ms";
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
 
+    // 시간 초기화 함수를 cleanup 함수 형태로 반환
     return () => {
       resetTimeout();
     };
+    // currentSlide가 변경될 때마다 실행
   }, [currentSlide]);
 
-  // render
   return (
     <SliderWrapper>
       <SliderContainer ref={slideRef}>
@@ -82,7 +94,6 @@ const Slider = () => {
   );
 };
 
-// style
 const SliderWrapper = styled.div`
   width: 100%;
   overflow: hidden;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { FaYoutube, FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import {ReactComponent as Logo} from '../../logo.svg';
 
-// render
 const Footer = () => {
   return (
     <FooterWrapper>
@@ -40,7 +39,6 @@ const Footer = () => {
   );
 };
 
-// style
 const FooterWrapper = styled.footer`
   width: 100%;
   background: #ffc300;
